@@ -1,49 +1,249 @@
-version: "2.0"
+version: '2.0'
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ICU_Vacant_beds
-  - Non_ICU_Vacant_beds
+- goodbye
+- greet_covid:
+    use_entities:
+    - virus
+- vaccine_efficacy
+- vaccine_side_effect
+- affirm_first_dose
+- serious_side_effect
+- bot_challenge
+- general_affirm
+- vaccine_infection
+- deny_dose
+- tell_me:
+    use_entities:
+    - age
+- vaccine_safety
+- side_effect_second_dose
+- avoid_second_dose
+- affirm_both_dose
+- delay_vaccination_decision
+- long_term_implications
+- high_risk_vaccination
+- after_vaccine_precautions
+- vaccine_work
+- vaccine_doses
+- vaccine_approval
+- call_the_doctor
+- planning_second_dose
+- deny_second_dose
+- scared_get_second_dose
+- region_info:
+    use_entities: 
+    - phu
+- vaccine_access
+- vaccine_cases
+- covid_symptoms
+- affirm_long_term:
+    use_entities:
+    - affirm_l_t
+- vaccine_covishield:
+    use_entities:
+    - vaccine_type_4
+- vaccine_kind:
+    use_entities:
+    - vaccine_type
+- vaccine_received:
+    use_entities:
+    - vac_rec
+- vaccine_pregnancy
+- vaccine_breast_feeding
+- vaccine_protection
+- vaccination_kids
+- vaccine_death
+- covid_vs_flu_vac
+- vaccine_ingredients
+- gender:
+    use_entities:
+    - gend
+
+entities:
+- age
+- virus
+- vac_rec
+- phu
+- affirm_l_t
+- vaccine_type
+- gend
+
+slots:
+  virus:
+    type: text
+  age:
+    type: text
+  vac_rec:
+    type: text
+  phu:
+    type: text
+  affirm_l_t:
+    type: text
+  vaccine_type:
+    type: text
+  gend:
+    type: text
 
 responses:
-  utter_greet:
-  - text: "Are you looking for vacant beds?"
-    buttons:
-      - payload: "/affirm"
-        title: "YES"
-      - payload: "/deny"
-        title: "NO"
+  utter_greet_covid:
+  - text: "Hello, Welcome to Vaccine help and assistance. How may I assist you today with your concerns regarding {virus} vaccination?"
+  utter_efficacy: 
+  - text: "The Pfizer-BioNTech and Moderna vaccines are given in two doses using a needle in your upper arm. The same vaccine is used for your first and second dose. The Pfizer-BioNTech and Moderna vaccines are expected to be 94-95% effective after two doses whereas Astrazeneca/ Covishield vaccine after two doses and Johnson&Johnson vaccine after one dose are expected to be 64-66% effective. Please let us know if there is anything else on your mind today regarding the Covid vaccine."
+  utter_vaccine_pregnancy:
+  - text: "People who are pregnant may be able to get the COVID-19 vaccine. People who were pregnant were excluded from the Phase III trials for the Pfizer BioNTech and Moderna COVID-19 vaccines. Therefore, there is limited data on the safety of the vaccines during pregnancy. Pregnant individuals in the authorized age group may choose to receive the vaccine after counselling and informed consent that includes: • a review of the risks and benefits of the vaccine • a review of the potential risks/ consequences of a COVID-19 infection in pregnancy • a review of the risk of acquiring a COVID-19 infection in pregnancy • an acknowledgment of the insufficiency of evidence for the use of current COVID-19 vaccines in the pregnant population. If after this counselling by their treating provider the pregnant individual feels the potential benefits of vaccination outweigh the potential harms, they should be able to access the vaccine. Individuals planning on becoming pregnant should speak with their primary care provider. For additional information, consult the [Society of Obstetricians and Gynaecologists of Canada Statement on COVID-19 Vaccination](https://www.sogc.org/common/Uploaded%20files/Latest%20News/SOGC_Statement_COVID-19_Vaccination_in_Pregnancy.pdf) in Pregnancy. I hope above information provided can help you make your decision regarding the necessary steps to take before planning to get the vaccination if you are pregnant or planning to get pregnant. Please let us know if there is anything else we can answer to ease your concerns regarding the vaccine."
 
-  utter_beds_type:
-  - text: "What are you looking for?"
-    buttons:
-      - payload: "/ICU_Vacant_beds"
-        title: "ICU Vacant Beds"
-      - payload: "/Non_ICU_Vacant_beds"
-        title: "Non ICU Vacant Beds"
+  utter_vaccine_breast_feeding:
+  - text: "Breastfeeding individuals may be able to get the COVID-19 vaccine. Breastfeeding individuals were excluded from the Phase III trials for the Pfizer BioNTech and Moderna COVID-19 vaccines. Therefore, there is no data on the safety of the vaccines in lactating individuals or the effects of mRNA vaccines on the breastfed infant or on milk production. For any individuals who are breastfeeding, the COVID-19 vaccine should be offered after counselling and informed consent that includes recognizing the insufficiency of evidence for the use of COVID-19 vaccine in the breastfeeding population. For additional information, consult the [Society of Obstetricians and Gynaecologists of Canada Statement on COVID-19 Vaccination](https://www.sogc.org/common/Uploaded%20files/Latest%20News/SOGC_Statement_COVID-19_Vaccination_in_Pregnancy.pdf) in Pregnancy. I hope above information provided can help you make your decision regarding the necessary steps to take before planning to get the vaccination if you are breast feeding. Please let us know if there is anything else we can answer to ease your concerns regarding the vaccine."
 
-  utter_sure:
-  - text: "Sure, let me check..."
+  utter_vaccine_efficacy:
+  - text: "Thank you for contacting us today regarding your concerns. Can we begin by knowing something about yourself. Please let us know your age?"
+  
+  utter_deny_dose:
+  - text: "Why? Do you have any questions we can try to answer to ease your concerns regarding the vaccine?"
+  
+  utter_affirm_first_dose:
+  - buttons:
+    - payload: /vaccine_pfizer
+      title: "Pfizer"
+    - payload: /vaccine_moderna
+      title: "Moderna"
+    - payload: /vaccine_j&j
+      title: "Johnson&Johnson"  
+    - payload: /vaccine_covishield
+      title: "Astrazeneca/ Covishield"
+    text: "Which vaccine did you get?"
+  
+  utter_vaccine_pfizer_moderna:
+  - buttons:
+    - payload: /planning_second_dose
+      title: "Yes, waiting to get second dose"
+    - payload: /deny_second_dose
+      title: "No, not interested"
+    - payload: /scared_get_second_dose
+      title: "No, scared about side effects" 
+    text: "Thank you for letting us know. Are you planning to get your second dose?"
+  
+  utter_waiting_second_dose:
+  - text: "Thank you. Please let us know what information we can provide you to assist you in getting the second dose."
 
+  utter_vaccine_ingredients: 
+  - text: "Which vaccine are you interested in knowing about? Please choose one of the options to find out the ingredients in the vaccine."  
 
-  utter_goodbye:
-  - text: "Thanks for the visit. \nWear mask, wash your hands regularly and keep 3m distance from each other. \nStay Home, Stay safe.\n"
+  utter_pfizer_ingredients:
+  - text: "Non-medical ingredients in the vaccine include: • ALC-0315 = (4-hydroxybutyl)azanediyl) bis(hexane-6,1-diyl)bis(2-hexyldecanoate) • ALC-0159 = 2-[(polyethylene glycol)- 2000]-N, N-ditetradecylacetamide • 1,2-distearoyl-sn-glycero-3- phosphocholine • Cholesterol • dibasic sodium phosphate dihydrate • monobasic potassium phosphate • potassium chloride • sodium chloride • sucrose • water for injection. See the Ontario Ministry of Health’s Information Sheet on Pfizer-BioNTech and Moderna COVID-19 Vaccines for further information. I hope this information was helpful for you. Do you wish to know anything else regarding the vaccine?"
+  
+  utter_moderna_ingredients:
+  - text: "Non-medical ingredients in the Moderna COVID-19 vaccine include: • 1, 2-distearoyl-sn-glycero-3- phosphocholine (DSPC) • acetic acid • cholesterol • lipid SM-102 • PEG2000 DMG 1,2-dimyristoyl-racglycerol, methoxy-polyethyleneglycol • sodium acetate • sucrose • tromethamine • tromethamine hydrochloride • water for injection. See the Ontario Ministry of Health’s Information Sheet on Pfizer-BioNTech and Moderna COVID-19 Vaccines for further information. I hope this information was helpful for you. Do you wish to know anything else regarding the vaccine?"
+  
+  utter_astrazeneca_ingredients:
+  - text: "Medical ingredients inside the vaccine are: Adenovirus vector vaccine and the Non-medical ingredients inside the vaccine are: • disodium edetate dihydrate (EDTA) • ethanol • L-histidine • L-histidine hydrochloride monohydrate • magnesium chloride hexahydrate • polysorbate 80 • sodium chloride • sucrose • water for injection. I hope this information was helpful for you. Do you wish to know anything else regarding the vaccine?"
 
+  utter_j&j_ingredients:
+  - text: "Medical ingredients inside the vaccine are: Adenovirus vector vaccine and the Non-medical ingredients inside the vaccine are: • 2-hydroxypropyl-β-cyclodextrin (HBCD) • citric acid monohydrate • ethanol • hydrochloric acid • polysorbate 80 • sodium chloride • sodium hydroxide • trisodium citrate dehydrate • water for injection. I hope this information was helpful for you. Do you wish to know anything else regarding the vaccine?"
+  
+  utter_vaccine_j&j:
+  - text: "Thank you for letting us know. Johnson and Johnson only requires one dose of the vaccine. How can we help you today in answering your question regarding the vaccine?"
+  
+  utter_vaccine_side_effect:
+  - text: "We understand that you have concerns regarding the side effects. However, ongoing studies on the Pfizer-BioNTech and Moderna vaccines indicate no serious side effects found to date. However, similar to medications and other vaccines, the COVID-19 vaccines can cause side effects. The most common side effects include soreness at the injection site on your arm, a bit of tiredness, chills and/or mild headache as the vaccine starts to work. During the clinical trials, the most frequent side effects were mild and resolved within a few days after vaccination. These types of side effects are expected and simply indicate the vaccine is working to produce protection. Is there still any concern you have on your mind regarding the possible side effects?"
+
+  
+  utter_vaccine_deaths:
+  - text: "No one is known to have died as a direct result of the COVID-19 vaccine. Nearly two million people have died globally from COVID-19. No one is known to have died as a direct result of the COVID-19 vaccine. Nearly two million people have died globally from COVID-19. I hope this information will be useful to you to help you make your mind regarding getting vaccinated. Is there anything else we can answer to help you further."
+
+  utter_serious_side_effect:
+  - text: "Serious side effects after receiving the vaccine are rare. As with any medicines and vaccines, allergic reactions are rare but can occur after receiving a vaccine. Symptoms of an allergic reaction include hives (bumps on the skin that are often very itchy), swelling of your face, tongue or throat, or difficulty breathing. Most serious reactions will occur shortly after injection, and clinic staff are prepared to manage an allergic reaction should it occur. Should you develop any of the following reactions within three days of receiving the vaccine, seek medical attention right away or call 911: • hives • swelling of the face or mouth • trouble breathing • very pale colour and serious drowsiness • high fever (over 40°C) • convulsions or seizures • other serious symptoms (e.g., “pins and needles” or numbness). If you are concerned about any reactions you experience after receiving the vaccine, contact your health care provider. You can also contact your local public health unit to ask questions or to report an adverse reaction. Is there something else you have on your mind today regarding the vaccine?"
+  
+  utter_covid_symptoms:
+  - text: "Symptoms of COVID-19 can vary from person to person. They may also vary in different age groups. Some of the more commonly reported symptoms include: •	new or worsening cough •	shortness of breath or difficulty breathing •	temperature equal to or over 38°C •	feeling feverish •	chills •	fatigue or weakness •	muscle or body aches •	new loss of smell or taste •	headache •	gastrointestinal symptoms (abdominal pain, diarrhea, vomiting) •	feeling very unwell. Children tend to have abdominal symptoms and skin changes or rashes. Symptoms may take up to 14 days to appear after exposure to COVID-19. You can take a [self assessment](https://covid-19.ontario.ca/self-assessment/) to find out whether you might be infected or not. However, this is not intended to provide you with a diagnosis. Please call 911 in case of medical emergency and let them know your symptoms. Please consult the [public health authority website](https://covid-19.ontario.ca/) to find testing locations near you. Everyone in your household must stay home if anyone has COVID-19 symptoms or is waiting for test results after experiencing symptoms."
+  
+  utter_cov_vs_flu:
+  - text: "The COVID-19 vaccine and the flu vaccine are very different and cannot be directly compared. They target different viruses: the flu vaccine has to combat several influenza viruses which mutate, while the COVID-19 vaccine targets just one virus, SARS-CoV-2."
+
+  utter_call_the_doctor:
+  - buttons:
+    - payload: /serious_side_effect
+    - title: "Serious side effects"
+    text: "Consult with your doctor or health care provider if you: 1) have questions or concerns about vaccination, 2) are unsure if you should receive the COVID-19 vaccine, 3) are immunocompromised due to a disease or treatment, such as chemotherapy, 4) have an autoimmune condition, 5) are pregnant or breastfeeding, 6) have a severe allergy to an ingredient in the COVID-19 vaccine, 7) have experienced mild to moderate immediate allergic reactions after a previous dose of an authorized COVID-19 vaccine, 8) are experiencing any symptoms of COVID-19, 9) have a bleeding disorder. To check the list of serious side effects, please click the button below:"
+  utter_infection:
+  - text: "The COVID-19 vaccine cannot give you COVID-19 or any other infectious disease. None of the Health Canada approved vaccines so far are live vaccines, meaning that they do not contain the virus that causes COVID-19. Vaccines tell your body how to make a harmless protein found in the virus and start building antibodies that know how to fight the real virus if you come in contact with it. It is important to remember that it typically takes a few weeks for the human body to build immunity after vaccination. That means it is possible for a person to become infected with the virus that causes COVID-19 just before or just after vaccination. This is because the vaccine has not had enough time to provide protection. Even if you receive the vaccine, please continue to follow the public health measures to keep you, your loved ones and your community safe. Has this information encouraged you to get the vaccine and maintain the necessary precautions after to ensure community safety or is there any other concern on your mind that you have today? We will be happy to provide you the most accurate information that can assist you in making the wise choice for yourself, your loved ones and your community."
+  utter_vaccine_work:
+  - text: "Thank you for addressing this question regarding the vaccine. We are happy to provide you the information on how the vaccine works to raise your awareness in regards to the Covid vaccine. Vaccines tell your body how to make a harmless protein found in the virus and start building antibodies that know how to fight the real virus if you come in contact with it. None of the Health Canada approved vaccines so far are live vaccines, meaning that they do not contain the virus that causes COVID-19."
+  utter_vaccine_approval:
+  - text: "Thank you for addressing your concerns regarding the approval process. Canada’s best independent scientists thoroughly reviewed all the data before approving the vaccines as safe and effective for Canadians. All safety steps were followed in approving these vaccines. The development of the COVID-19 vaccines progressed quickly for several reasons including: reduced time delays in the vaccine approval process, quick adaptation of existing research programs, international collaboration among scientists and governments, increased dedicated funding and quick recruitment of clinical trial participants. The technology behind the vaccines has been around for more than 10 years and have already been used in animal models for influenza, zika virus, rabies virus, cytomegalovirus (CMV) and others. Because this advanced technology already existed, scientists were able to work quickly. View the [Ministry of Health’s summary of the COVID-19 Vaccine Approval Process and Safety](https://www.health.gov.on.ca/en/pro/programs/publichealth/coronavirus/docs/vaccine/COVID-19_vaccine_approval_process_safety.pdf) for further information. Is there anything else about the vaccine that you have on your mind today. We will be happy to answer you to assist you in your decision about the vaccine."
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+  utter_general_affirm:
+  - text: "Please let us know your questions and we will do our best to relieve your concerns regarding the vaccine."
+  utter_goodbye:
+  - text: "Thank you for contacting Vaccine Help for making more informed decision regarding the Covid vaccine and ensuring to keep yourself and the community safe. Would you like to leave us a short feedback on how we assisted you today?"
+  utter_avoid_second_dose:
+  - text: "Please let us know your concerns regarding the second dose and we will be happy to assist you in proving the most upto date information to make you comfortable regarding your decision about getting second dose of the Covid vaccine. It is important to receive both doses. Protection offered by the first dose is lower than what is achieved after the second dose. The vaccines are 94-95% effective after two doses. I hope this will encourage you to not miss any dose of the vaccination. Is there anything we can answer in making you more informed about the second dose? We will be most happy to assist you in clarifying any of your concerns regarding the vaccine."
+  utter_side_effect_second_dose:
+  - text: "Side effects are more likely to occur after your second dose of the vaccine. Since side effects are the result of your immune system building protection, once your immune system has been primed with the first dose then there is a much stronger immune response to the second dose (this is a good thing!). Was this information helpful to you in making your mind regarding the vaccine or is there anything else on your mind?"
+  utter_affirm_both_dose:
+  - buttons:
+    - payload: /vaccine_pfizer
+      title: "Pfizer"
+    - payload: /vaccine_moderna
+      title: "Moderna"
+    - payload: /vaccine_covishield
+      title: "Astrazeneca/ Covishield"
+    - payload: /vaccine_j&j
+      title: "Johnson&Johnson"  
+    text: "That's great! Do you have any questions about the vaccine and precautions to taken after your vaccination? Also will you please let us know which vaccine did you get so we can better assist you with any other concerns you may have."
+  utter_vaccine_doses:
+  - text: "The Pfizer-BioNTech and Moderna vaccines are given in two doses using a needle in your upper arm. It is important to receive both doses. The same vaccine is used for your first and second dose. Do you have any other question regarding the second dose which can help you in getting both the doses of the vaccine?"
+  utter_delay_vaccination_decision:
+  - text: "The sooner a majority of Ontarians are vaccinated, the sooner our lives can return to normal. We need a majority of Ontarians to be vaccinated to end the pandemic. We are working to distribute the vaccine to every corner of the province as soon as we receive sufficient supply. To ensure that everyone who wants to be vaccinated can be vaccinated safely and quickly, it is important that people who have access the vaccine are vaccinated the first time it is offered to them. What prevents you from making your decision regarding taking the vaccine?"
+  utter_high_risk_vaccination:
+  - text: "Thank you for addressing your concern. Even if you are not high-risk, there are other individuals in your community who may be high-risk and immunocompromised, which means their immune systems are not strong enough to receive a vaccine. When a majority of the community is vaccinated, this protects individuals who are immunocompromised because it reduces the chances that a virus can spread throughout the community and infect that immunocompromised individual who could not receive the vaccine. A healthy person can still be affected due to Covid 19 virus and have long term implications."
+  utter_long_term_implications:
+  - text: "Long term implications of getting infected by Covid 19 can be serious. Therefore, it is highly recommended to get the vaccine. Globally, nearly two million people have died of COVID-19 in less than a year. COVID-19 does not discriminate, and anyone can become sick from the virus. Even if a healthy person does not die of COVID-19 infection, they may have long term complications that impact their ability to experience normal life, such as shortness of breath, fatigue, headaches, muscle/joint pain, cognitive impairment, cough and loss of taste and/or smell."
+  utter_after_vaccine_precautions:
+  - text: "Thank you for your question in regards to the precautions that should be taken. It is absolutely necessary to maintain all the required precautions. Even though the Pfizer and Moderna vaccines are 94-95% effective after two doses, studies are still underway to determine the effectiveness of the vaccine in preventing asymptomatic infection and reducing the transmission of COVID-19. For now, and until scientific experts say it’s safe to stop, it is important to continue to follow the advice of public health officials including maintaining a physical distance of two metres from people outside of your household, wearing a mask, practicing proper hand hygiene and limiting nonessential travel. These measures will help keep you, your loved ones and your community safe.  Please take the necessary precautions to ensure safety of everyone. Is there anything else that you wish to know."
+  
+  utter_safety:
+  - text: "Only vaccines that Health Canada has approved and determined are safe and effective will be administered in Ontario Health Canada has one of the most rigorous scientific review systems in the world. Health Canada only approves a vaccine if it is safe, it works, it meets manufacturing standards, and the benefits of being vaccinated outweigh the risks.  Are there any other concerns regarding the vaccine that we can answer to bring you the most up to date and accurate information to make you more comfortable about your decision regarding the vaccine?"
+  
+  utter_protection:
+  - text: "A vaccine is the only foreseeable way to end the COVID-19 pandemic. The pandemic will not end until the majority of Canadians are vaccinated. While the vaccine will protect each of us individually, the primary goal of a vaccine program is to immunize the majority of the population so that COVID-19 can no longer spread. The percentage of people that need to be vaccinated depends on how infectious the disease is and how effective the vaccine is at preventing spread of the disease. Considering the long- term implications of getting infected by Covid and global impact of the pandemic on the number of deaths caused by Covid, it is highly recommended to get the vaccine. The Pfizer-BioNTech and Moderna vaccines are expected to be 94-95% effective after two doses whereas Astrazeneca/ Covishield after two doses and Johnson&Johnson after one dose are expected to be 64-66% effective. The sooner a majority of Ontarians are vaccinated, the sooner our lives can return to normal. I hope this information will encourage you in getting the vaccine to protect yourself against Covid and keep your loved ones and the community safe from the spread of Covid 19. Is there anything else we can assist you with today in regard to Covid vaccine?"
+  
+  utter_vaccine_access:
+  - text: "Please type in the name of the Public health unit in your region and we will be happy to direct you to the website where you can find the information regarding the vaccination clinics in your region. If you do not know your Public health unit, you may check on the following [Website](https://www.phdapps.health.gov.on.ca/phulocator/) by entering your postal code or Municipality information."
+  
+  utter_vaccine_taken:
+  - buttons:
+    - payload: /affirm_first_dose
+      title: "Yes, I have taken 1st dose"
+    - payload: /affirm_both_dose
+      title: "Yes, I have taken both doses"
+    - payload: /deny_dose
+      title: "No"
+    text: "Can you please choose an option below to let us know if you have already taken the first dose or are you waiting to get your vaccine soon?"
 
-  utter_also_check:
-    - text: "Also check this link for area wise requirements: [COVID ARMY](https://covid.army/)"
+  utter_vaccine_cases:
+  - text: "Please type in the name of the Public health unit in the region where you wish to access the information so we can provide the accurate numbers for Covid cases in your region. If you do not know your Public health unit, you may check on the following [Website](https://www.phdapps.health.gov.on.ca/phulocator/) by entering your postal code or Municipality information."
+
+  utter_kids_vaccination:
+  - text: "Vaccine is currently administered only in ages 12 and above. Those who are of age 12 and above are eligible to get Pfizer-BioNTech vaccine. Those who are of age 18 and above are eligible to get Moderna, Astrazeneca and Johnson&Johnson vaccines. So far, a vaccine has not been approved for children. Research is underway to determine when those under the authorized ages can receive the vaccine. We appreciate your patience and understanding in this matter."
+
+
 
 actions:
-  - action_check_icu_vacant_beds
-  - action_check_non_icu_vacant_beds
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+- action_covid_vaccine
+- action_submit_all
+- action_submit_age
+- action_submit_all_gender
+- action_submit_long_term_child_path
+- action_first_dose
+- action_both_dose
+- action_no_dose
+- action_vac_info
+- action_submit_region
+- action_submit_ingredients_type
+
+
+forms: {}
+e2e_actions: []
