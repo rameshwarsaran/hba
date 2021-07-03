@@ -1,0 +1,1042 @@
+version: "2.0"
+
+stories:
+
+- story: efficacy path one
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: vaccine_doses
+  - action: action_submit_all
+  - intent: serious_side_effect
+  - action: action_submit_all
+  - intent: delay_vaccination_decision
+  - action: action_submit_all
+  - intent: high_risk_vaccination
+  - action: action_submit_all
+  - intent: affirm_long_term
+    entities:
+    - affirm_l_t = "Yes"
+  - slot_was_set:
+    - affirm_l_t: "Yes"
+  - action: action_submit_long_term_child_path
+  - intent: long_term_implications
+  - action: action_submit_all
+  - intent: after_vaccine_precautions
+  - action: action_submit_all
+  - intent: vaccine_access
+  - action: action_submit_all
+  - intent: region_info
+    entities:
+    - phu = "toronto public health"
+  - slot_was_set:
+    - phu: "toronto public health"
+  - action: action_submit_region
+  - intent: vaccine_cases
+  - action: action_submit_all
+  - intent: vaccine_pregnancy
+  - action: action_submit_all
+  - intent: vaccine_breast_feeding
+  - action: action_submit_all
+  - intent: vaccine_protection
+  - action: action_submit_all
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: covid_vs_flu_vac
+  - action: action_submit_all
+  - intent: vaccine_ingredients
+  - action: action_submit_all
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all
+
+
+- story: vaccination kids path two
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_protection
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: covid_vs_flu_vac
+  - action: action_submit_all
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all
+
+- story: safety path three
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: vaccine_doses
+  - action: action_submit_all
+  - intent: serious_side_effect
+  - action: action_submit_all
+  - intent: delay_vaccination_decision
+  - action: action_submit_all
+  - intent: high_risk_vaccination
+  - action: action_submit_all
+  - intent: affirm_long_term
+    entities:
+    - affirm_l_t = "Yes"
+  - slot_was_set:
+    - affirm_l_t: "Yes"
+  - action: action_submit_long_term_child_path
+  - intent: vaccine_cases
+  - action: action_submit_all
+  - intent: vaccine_pregnancy
+  - action: action_submit_all
+  - intent: vaccine_breast_feeding
+  - action: action_submit_all
+  - intent: vaccine_protection
+  - action: action_submit_all
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: covid_vs_flu_vac
+  - action: action_submit_all
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all
+
+
+- story: Side effect second dose path four
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: vaccine_doses
+  - action: action_submit_all
+  - intent: serious_side_effect
+  - action: action_submit_all
+  - intent: delay_vaccination_decision
+  - action: action_submit_all
+  - intent: high_risk_vaccination
+  - action: action_submit_all
+  - intent: affirm_long_term
+    entities:
+    - affirm_l_t = "Yes"
+  - slot_was_set:
+    - affirm_l_t: "Yes"
+  - action: action_submit_long_term_child_path
+  - intent: long_term_implications
+  - action: action_submit_all
+  - intent: after_vaccine_precautions
+  - action: action_submit_all
+  - intent: vaccine_access
+  - action: action_submit_all
+  - intent: region_info
+    entities:
+    - phu = "toronto public health"
+  - slot_was_set:
+    - phu: "toronto public health"
+  - action: action_submit_region
+  - intent: vaccine_cases
+  - action: action_submit_all
+  - intent: vaccine_pregnancy
+  - action: action_submit_all
+  - intent: vaccine_breast_feeding
+  - action: action_submit_all
+  - intent: vaccine_protection
+  - action: action_submit_all
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: vaccine_ingredients
+  - action: action_submit_all
+
+- story: precautions path five
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: after_vaccine_precautions
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: vaccine_doses
+  - action: action_submit_all
+  - intent: serious_side_effect
+  - action: action_submit_all
+  - intent: delay_vaccination_decision
+  - action: action_submit_all
+  - intent: high_risk_vaccination
+  - action: action_submit_all
+  - intent: affirm_long_term
+    entities:
+    - affirm_l_t = "Yes"
+  - slot_was_set:
+    - affirm_l_t: "Yes"
+  - action: action_submit_long_term_child_path
+  - intent: long_term_implications
+  - action: action_submit_all
+  - intent: vaccine_access
+  - action: action_submit_all
+  - intent: region_info
+    entities:
+    - phu = "toronto public health"
+  - slot_was_set:
+    - phu: "toronto public health"
+  - action: action_submit_region
+  - intent: vaccine_cases
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: covid_vs_flu_vac
+  - action: action_submit_all
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_ingredients
+  - action: action_submit_all
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all
+
+- story: vaccine infection path six
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+
+- story: vaccine access path seven
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccine_access
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: region_info
+    entities:
+    - phu = "toronto public health"
+  - slot_was_set:
+    - phu: "toronto public health"
+  - action: action_submit_region
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: vaccine_doses
+  - action: action_submit_all
+  - intent: serious_side_effect
+  - action: action_submit_all
+  - intent: delay_vaccination_decision
+  - action: action_submit_all
+  - intent: high_risk_vaccination
+  - action: action_submit_all
+  - intent: affirm_long_term
+    entities:
+    - affirm_l_t = "Yes"
+  - slot_was_set:
+    - affirm_l_t: "Yes"
+  - action: action_submit_long_term_child_path
+  - intent: long_term_implications
+  - action: action_submit_all
+  - intent: after_vaccine_precautions
+  - action: action_submit_all
+  - intent: vaccine_cases
+  - action: action_submit_all
+  - intent: vaccine_pregnancy
+  - action: action_submit_all
+  - intent: vaccine_breast_feeding
+  - action: action_submit_all
+  - intent: vaccine_protection
+  - action: action_submit_all
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+
+
+- story: vaccine ingredients path eight
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccine_ingredients
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all
+
+- story: vaccine approval nine
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: vaccine_approval
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: avoid_second_dose
+  - action: action_submit_all
+  - intent: vaccine_work
+  - action: action_submit_all
+  - intent: side_effect_second_dose
+  - action: action_submit_all
+  - intent: call_the_doctor
+  - action: action_submit_all
+  - intent: deny_dose
+  - action: action_no_dose
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: vaccine_safety
+  - action: action_submit_all
+  - intent: affirm_both_dose
+  - action: action_both_dose
+  - intent: vaccine_doses
+  - action: action_submit_all
+  - intent: serious_side_effect
+  - action: action_submit_all
+  - intent: delay_vaccination_decision
+  - action: action_submit_all
+  - intent: region_info
+    entities:
+    - phu = "toronto public health"
+  - slot_was_set:
+    - phu: "toronto public health"
+  - action: action_submit_region
+  - intent: vaccine_cases
+  - action: action_submit_all
+  - intent: vaccine_pregnancy
+  - action: action_submit_all
+  - intent: vaccine_breast_feeding
+  - action: action_submit_all
+  - intent: vaccine_protection
+  - action: action_submit_all
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: covid_vs_flu_vac
+  - action: action_submit_all
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_ingredients
+  - action: action_submit_all
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all
+
+- story: covid symptoms path ten
+  steps:
+  - intent: greet_covid
+    entities:
+    - virus= "Covid"
+    - virus= "sars cov 2"
+    - virus= "Covid 19"
+  - action: action_covid_vaccine
+  - intent: covid_symptoms
+  - action: action_submit_all
+  - intent: tell_me
+    entities: 
+    - age= "15"
+  - slot_was_set:
+    - age: "15"
+  - action: action_submit_age
+  - intent: vaccine_received
+    entities:
+    - vac_rec = "Pfizer"
+  - slot_was_set:
+    - vac_rec: "Pfizer"
+  - action: action_vac_info
+  - intent: planning_second_dose
+  - action: utter_waiting_second_dose
+  - intent: deny_second_dose
+  - action: utter_deny_dose
+  - intent: scared_get_second_dose
+  - action: action_submit_all
+  - intent: vaccine_efficacy
+  - action: action_submit_all
+  - intent: affirm_first_dose
+  - action: action_first_dose
+  - intent: vaccine_side_effect
+  - action: action_submit_all
+  - intent: general_affirm
+  - action: action_submit_all
+  - intent: vaccine_infection
+  - action: action_submit_all
+  - intent: vaccination_kids
+  - action: action_submit_all
+  - intent: vaccine_death
+  - action: action_submit_all
+  - intent: covid_vs_flu_vac
+  - action: action_submit_all
+  - intent: gender
+    entities:
+    - gend = "Female"
+  - slot_was_set:
+    - gend: "Female"
+  - action: action_submit_all_gender
+  - intent: vaccine_ingredients
+  - action: action_submit_all
+  - intent: vaccine_kind
+    entities:
+    - vaccine_type = "Pfizer"
+  - slot_was_set:
+    - vaccine_type: "Pfizer"
+  - action: action_submit_ingredients_type
+  - intent: goodbye
+  - action: action_submit_all
+  - intent: general_affirm_feed
+    entities:
+    - g_affirm = "Yes"
+  - slot_was_set:
+    - g_affirm: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v1
+    entities: 
+    - g_affirm_v1 = "Yes"
+  - slot_was_set:
+    - g_affirm_v1: "Yes"
+  - action: action_submit_all
+  - intent: general_affirm_v2
+    entities: 
+    - g_affirm_v2= "Yes"
+  - slot_was_set:
+    - g_affirm_v2: "Yes"
+  - action: action_submit_all
+  - intent: content_level
+    entities:
+    - discont= "Takes a long time, inefficient"
+  - slot_was_set:
+    - discont: "Takes a long time, inefficient"
+  - action: action_submit_all

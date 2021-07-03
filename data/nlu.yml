@@ -1,0 +1,623 @@
+version: "2.0"
+
+nlu:
+- intent: greet_covid
+  examples: |
+    - hey, I have concerns regarding [Covid]{"entity":"virus","value":"Covid"} vaccine
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - hi I have concerns regarding the vaccine
+    - good afternoon
+    - I want to know about [Covid]{"entity":"virus","value":"Covid"} vaccine
+    - Can you please provide me information about [Covid]{"entity":"virus","value":"Covid"} vaccine
+    - Can you please provide me information about [sars cov 2]{"entity":"virus","value":"sars cov 2"} vaccine
+    - I am interested in finding out information about [Covid]{"entity":"virus","value":"Covid"} vaccine
+    - hello, I am interested in knowing about [Covid]{"entity":"virus","value":"Covid"} vaccine
+    - hello, I have concerns regarding [Covid]{"entity":"virus","value":"Covid"} vaccine
+    - hello, I have concerns regarding [sars cov 2]{"entity":"virus","value":"sars cov 2"} vaccine
+    - hello, I have concerns regarding [sars covid 2]{"entity":"virus","value":"sars cov 2"} vaccine
+    - hello, I have concerns regarding [Covid 19]{"entity":"virus","value":"Covid 19"} vaccine
+    - goodmorning, I have concerns regarding [Covid 19]{"entity":"virus","value":"Covid 19"} vaccine
+    - goodmorning, I have concerns regarding [sars covid 2]{"entity":"virus","value":"sars cov 2"} vaccine
+
+- intent: planning_second_dose
+  examples: |
+    - Yes, Planning to get my second dose
+
+- intent: deny_second_dose
+  examples: |
+    - No, Not planning to get my second dose
+
+- intent: scared_get_second_dose
+  examples: |
+    - No, worried about effects
+
+
+- intent: vaccine_received
+  examples: |
+    - I have taken [Astrazence Covishield]{"entity":"vac_rec", "value":"Astrazenca Covishield"}
+    - I have taken [Astrazence]{"entity":"vac_rec", "value":"Astrazenca"}
+    - I have taken [Covishield]{"entity":"vac_rec", "value":"Covishield"}
+    - I have taken [Moderna]{"entity":"vac_rec", "value":"Moderna"}
+    - I have taken [Pfizer]{"entity":"vac_rec", "value":"Pfizer"}
+    - I have taken [Covishield]{"entity":"vac_rec", "value":"Covishield"}
+    - [Astrazence Covishield]{"entity":"vac_rec", "value":"Astrazenca Covishield"}
+    - [Moderna]{"entity":"vac_rec", "value":"Moderna"}
+    - [Pfizer-BioNTech]{"entity":"vac_rec", "value":"Pfizer-BioNTech"}
+
+- intent: vaccine_kind
+  examples: |
+    - I want to know about [Astrazeneca Covishield]{"entity":"vaccine_type", "value":"Astrazeneca Covishield"}
+    - I want to know about [Astrazeneca]{"entity":"vaccine_type", "value":"Astrazeneca"}
+    - I want to know about [Covishield]{"entity":"vaccine_type", "value":"Covishield"}
+    - I want to know about [Moderna]{"entity":"vaccine_type", "value":"Moderna"}
+    - I want to get information about [Pfizer]{"entity":"vaccine_type", "value":"Pfizer"}
+    - I am interested in [Johnson&Johnson]{"entity":"vaccine_type", "value":"Johnson&Johnson"}
+    - [Astrazence Covishield]{"entity":"vac_rec", "value":"Astrazenca Covishield"}
+    - [Moderna]{"entity":"vac_rec", "value":"Moderna"}
+    - [Pfizer-BioNTech]{"entity":"vac_rec", "value":"Pfizer-BioNTech"}
+
+
+
+#Gender Based Intents:
+#------------------------------------------------------------------------------------------------------->
+- intent: gender
+  examples: |
+    - [Female]{"entity":"gend"}
+    - [Male]{"entity":"gend"}
+
+
+#Gender based intents end---------------------------------------------------------------------------------->
+#----------------------------------------------------------------------------------------------------------->
+
+- intent: affirm_long_term
+  examples: |
+    - [Yes]{"entity":"affirm_l_t"} I would like to know the long term implications
+    - [No]{"entity":"affirm_l_t"} I would not like to know the long term implications
+    - [Yes]{"entity":"affirm_l_t"} I would like to know
+    - [No]{"entity":"affirm_l_t"} I would not like to know
+    - [Yes]{"entity":"affirm_l_t"} Please tell me
+    - [No]{"entity":"affirm_l_t"} I am ok thanks
+
+- intent: vaccine_access
+  examples: |
+    - Where can I get the vaccine?
+    - how do I get the vaccine?
+    - I live in Ottawa, where can I get the vaccine?
+    - Please let me know where I can get my vaccine?
+    - Where can I get vaccinated?
+    - What places can get the vaccine?
+
+- intent: region_info
+  examples: |
+    - [algoma public health unit]{"entity": "phu", "value":"algoma public health unit"}
+    - [brant county health unit]{"entity": "phu", "value":"brant county health unit"}
+    - [chatham-kent health unit]{"entity": "phu", "value":"chatham-kent health unit"}
+    - [durham region health department]{"entity": "phu", "value":"durham region health department"}
+    - [eastern ontario health unit]{"entity": "phu", "value":"eastern ontario health unit"}
+    - [grey-bruce health unit]{"entity": "phu", "value":"grey-bruce health unit"}
+    - [haldimand-norfolk health unit]{"entity": "phu", "value":"haldimand-norfolk health unit"}
+    - [halton region health department]{"entity": "phu", "value":"halton region health department"}
+    - [hamilton public health services]{"entity": "phu", "value":"hamilton public health services"}
+    - [hastings and prince edward counties health unit]{"entity": "phu", "value":"hastings and prince edward counties health unit"}
+    - [haliburton, kawartha, pine ridge district health unit]{"entity": "phu", "value":"haliburton, kawartha, pine ridge district health unit"}
+    - [huron perth health unit]{"entity": "phu", "value":"huron perth health unit"}
+    - [kingston, frontenac and lennox & addington health unit]{"entity": "phu", "value":"kingston, frontenac and lennox & addington health unit"}
+    - [lambton health unit]{"entity": "phu", "value":"lambton health unit"}
+    - [leeds, grenville and lanark district health unit]{"entity": "phu", "value":"leeds, grenville and lanark district health unit"}
+    - [middlesex-london health unit]{"entity": "phu", "value":"middlesex-london health unit"}
+    - [niagara region public health department]{"entity": "phu", "value":"niagara region public health department"}
+    - [north bay parry sound district health unit]{"entity": "phu", "value":"north bay parry sound district health unit"}
+    - [northwestern health unit]{"entity": "phu", "value":"northwestern health unit"}
+    - [ottawa public health]{"entity": "phu", "value":"ottawa public health"}
+    - [peel public health]{"entity": "phu", "value":"peel public health"}
+    - [peterborough public health]{"entity": "phu", "value":"peterborough public health"}
+    - [porcupine health unit]{"entity": "phu", "value":"porcupine health unit"}
+    - [renfrew county and district health unit]{"entity": "phu", "value":"renfrew county and district health unit"}
+    - [simcoe muskoka district health unit]{"entity": "phu", "value":"simcoe muskoka district health unit"}
+    - [southwestern public health]{"entity": "phu", "value":"southwestern public health"}
+    - [sudbury and district health unit]{"entity": "phu", "value":"sudbury and district health unit"}
+    - [thunder bay district health unit]{"entity": "phu", "value":"thunder bay district health unit"}
+    - [timiskaming health unit]{"entity": "phu", "value":"timiskaming health unit"}
+    - [toronto public health]{"entity": "phu", "value":"toronto public health"}
+    - [region of waterloo, public health]{"entity": "phu", "value":"region of waterloo, public health"}
+    - [wellington-dufferin-guelph health unit]{"entity": "phu", "value":"wellington-dufferin-guelph health unit"}
+    - [windsor-essex county health unit]{"entity": "phu", "value":"windsor-essex county health unit"}
+    - [york region public health services]{"entity": "phu", "value":"york region public health services"}
+    
+- intent: vaccine_cases
+  examples: |
+    - hi, I wanted to know how many covid cases are there in my area?
+    - I live in Mississauga and I wanted to know how many cases of Covid are currently in my region?
+    - I wanted to know the number of Covid cases in my region or area?
+    - Can you please tell me the number of Covid cases in my area?
+    - Can you please tell how many covid cases are currently present in my area or region?
+    - Can you please tell me how many covid cases are present in my region or area?
+
+
+
+- intent: covid_symptoms
+  examples: |
+    - How do I know if I have Covid or not?
+    - What are the symptoms of Covid?
+    - Do I have Covid?
+    - What are the symptoms of Covid infection?
+    - How do I know if I have Covid infection?
+    - When should I call a doctor if I fell Covid symptoms?
+    - What are the common symptoms of Covid to look for?
+    - What are the symptoms of Covid 19?
+    - What happens if I get Covid infection?
+    - Can you please explain the symptoms of Covid?
+    - Can you please tell the symptoms of Covid infection?
+
+
+
+- intent: vaccine_efficacy
+  examples: |
+    - I have concerns regarding efficacy of the Covid vaccine
+    - how well does the Covid vaccine work?
+    - how efficient is the vaccine?
+    - how good is the vaccine?
+    - does the vaccine work?
+    - I wanted know what is the efficacy of the vaccine?
+    - how well does the vaccine work?
+    - I wanted to know how good is the vaccine?
+    - what is the efficacy of the vaccine?
+    - how effective is the vaccine?
+    - what is the effectiveness of Covid vaccine?
+
+- intent: tell_me
+  examples: |
+    - Hi, I am [15]{"entity":"age","value":"15"}
+    - Hello, I am [17]{"entity":"age","value":"17"}
+    - I am [19]{"entity":"age","value":"19"}
+    - [54]{"entity":"age","value":"54"}
+    - I am [19]{"entity":"age","value":"19"} years old
+
+- intent: vaccine_side_effect
+  examples: |
+    - Will I experience side effects?
+    - What are the common side effects of the vaccine?
+    - What are the longer term side effects of this vaccine?
+    - What are the longer term side effects of Pfizer-BioNTech vaccine?
+    - What are the longer term side effects of Moderna vaccine?
+    - What side effect of the vaccine do I need to worry about?
+    - I would like to know more about the side effects of the vaccine.
+    - Are there any side effects of the vaccine?
+    - Can I get or experience fever or any other side effect after getting the vaccine?
+    - Can I get fever from the vaccine?
+    - Can you please tell me about the side effects of the vaccine?
+    - Can I get fever after getting vaccinated?
+    - Can I get headache or soreness after getting vaccinated?
+    - Can I get headache or soreness from the vaccine?
+    - Can I get headache from the vaccine?
+    - Can I get soreness from the vaccine?
+    - What are the side effects of the vaccine?
+    - Will I get fever after getting the vaccine?
+    - Will I get headache after getting the vaccine?
+    - Will I get soreness after getting the vaccine?
+    - Will I get fever from the vaccine?
+    - Will I get soreness from the vaccine?
+    - Will I get headache from the vaccine?
+    - Does the vaccine have any side effect?
+    - I am scared about the side effects of the vaccine.
+    - Are there any long term side effects of the vaccine?
+
+- intent: affirm_first_dose
+  examples: |
+    - yes, I have taken the first dose of the vaccine
+    - yes, I have taken the first dose
+    - I got my first shot
+    - I took the first shot of the vaccine
+    - I got the first dose of the vaccine
+
+- intent: serious_side_effect
+  examples: |
+    - What are the serious side effects of the vaccine?
+    - Can I get high fever from the vaccine?
+    - Can I get Convulsions or seizures from the vaccine?
+    - Will I get numbness from the vaccine?
+    - Can I get hives from the vaccine?
+    - Are there any serious side effects of the vaccine?
+    - I would like to know more about the side effects of the vaccine.
+    - Can you please explain more about the side effects of the vaccine?
+    - Can I experience trouble in breathing from the vaccine?
+    - Are there any serious side effects of the vaccine?
+    - Can I get high fever after getting vaccinated?
+    - Can I get Convulsions or seizures after getting vaccinated?
+    - Will I get numbness after getting vaccinated?
+    - Can I get hives after getting vaccinated?
+    - Can I experience trouble in breathing after getting vaccinated?
+    - Can I get allergic reactions due to vaccine?
+    - Can I get allergic reactions after getting vaccinated?
+    - Can I get allergic reactions from the vaccine?
+    - Are there any allergic reactions from the vaccine?
+    - What are the allergic reactions of the vaccine?
+    - Do I need to worry about getting allergic reactions from the vaccine?
+
+- intent: vaccine_infection
+  examples: |
+    - Can the vaccine give me Covid 19 infection?
+    - Can the vaccine cause infection?
+    - Will I get Covid 19 from the vaccine?
+    - Can I get Covid 19 after getting vaccinated?
+    - I am scared that the Covid vaccine will infect me
+    - I am scared I might get infected by the vaccine
+    - I am scared I might get infected
+    - What are the chances of getting Covid 19 infection after getting vaccinated?
+    - What are the chances of getting Covid 19 infection after I have been vaccinated?
+    - What are the chances of getting Covid 19 infection after vaccination?
+    - Will I get Covid 19 infection after getting the vaccine?
+    - Can I get Covid infection after getting the second dose of the vaccine?
+    - I want to get my second dose of the vaccine. But I am worried if I will get Covid infection after getting the second dose?
+    - Will I get infected after getting the second dose of the vaccine?
+    - I am worried about getting the second dose if it might give me Covid infection
+
+- intent: general_affirm
+  examples: |
+    - Yes, I would like to know more
+    - yes I have more questions
+    - Yes, please
+    - Yes
+
+# FEEDBACK INTENTS
+#_______________________________________________________________________________________________________________________________________>
+- intent: general_affirm_feed
+  examples: |
+    - [Yes]{"entity":"g_affirm","value":"Yes"}, I would like to 
+    - [yes]{"entity":"g_affirm","value":"yes"} I am interested
+    - [yes]{"entity":"g_affirm","value":"yes"} I can
+    - [Yes]{"entity":"g_affirm","value":"Yes"}
+    - [Yes]{"entity":"g_affirm","value":"Yes"} please
+    - [No]{"entity":"g_affirm","value":"No"}, thanks I am good
+    - [No]{"entity":"g_affirm","value":"No"}
+    - [Yes]{"entity":"g_affirm","value":"Yes"}, I will be happy to
+    - [Sure]{"entity":"g_affirm","value":"Sure"}
+
+- intent: general_affirm_v1
+  examples: |
+    - [Yes]{"entity":"g_affirm_v1","value":"Yes"} thank you all my questions were answered
+    - [yes]{"entity":"g_affirm_v1","value":"yes"}, all my questions were answered. 
+    - [yes]{"entity":"g_affirm_v1","value":"yes"} I am satisfied with my responses or answers.
+    - [Yes]{"entity":"g_affirm_v1","value":"Yes"} answered them all
+    - [Yes]{"entity":"g_affirm_v1","value":"Yes"} most of them were answered
+    - [Yes]{"entity":"g_affirm_v1","value":"Yes"} however it would have been nicer to speak with an agent.
+    - [No]{"entity":"g_affirm_v1","value":"No"}, I feel a human agent would have been better to speak with
+    - [No]{"entity":"g_affirm_v1","value":"No"}, I did not get my questions answered.
+    - [No]{"entity":"g_affirm_v1","value":"No"}, I am not satisfied with the responses or answered I received.
+    - [No]{"entity":"g_affirm_v1","value":"No"}
+
+- intent: general_affirm_v2
+  examples: |
+    - [Yes]{"entity":"g_affirm_v2","value":"Yes"}, it was quite east to use
+    - [yes]{"entity":"g_affirm_v2","value":"yes"}, it was very efficient 
+    - [yes]{"entity":"g_affirm_v2","value":"yes"}, it was quite fast and convenient
+    - [Yes]{"entity":"g_affirm_v2","value":"Yes"}, it was helpful
+    - [Yes]{"entity":"g_affirm_v2","value":"Yes"} however it would have been nicer to speak with an agent.
+    - [No]{"entity":"g_affirm_v2","value":"No"}, I feel a human agent would have been better to speak with
+    - [No]{"entity":"g_affirm_v2","value":"No"}, it was complicated
+    - [No]{"entity":"g_affirm_v2","value":"No"}, I did not find it helpful.
+    - [No]{"entity":"g_affirm_v2","value":"No"}
+
+- intent: content_level
+  examples: |
+    - [Takes a long time, inefficient]{"entity":"discont","value":"Takes a long time, inefficient"}
+    - [Did not understand my questions]{"entity":"discont","value":"Did not understand my questions"}
+    - [Not friendly to use]{"entity":"discont","value":"Not friendly to use"}
+    - [Prefer to speak with live agent]{"entity":"discont","value":"Prefer to speak with live agent"}
+    - [Friendly and helpful, answered all my questions]{"entity":"discont","value":"Friendly and helpful, answered all my questions"}
+    - [Fast and convenient, answered my questions]{"entity":"discont","value":"Fast and convenient, answered my questions"}
+    - [Answered my questions]{"entity":"discont","value":"Answered my questions"}
+    - [Answered most of my questions]{"entity":"discont","value":"Answered most of my questions"}
+
+- intent: goodbye
+  examples: |
+    - Thank you for your help
+    - No, thanks I am good
+    - Thanks, I am good
+    - No
+    - No, Thanks I am good.
+    - bye
+    - goodbye
+    - have a nice day
+
+# Feedback Survey intents End
+#____________________________________________________________________________________________________________________________________>
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - Can I talk to a live person?
+    - Can I talk to someone?
+    - Can I speak with a human?
+  
+- intent: deny_dose
+  examples: |
+    - no, I have not taken the vaccine
+    - no, I have not
+    - no, I will not be getting vaccinated
+
+- intent: avoid_second_dose
+  examples: |
+    - What if I don’t take the second dose of the vaccine?
+    - What if I don’t take the 2nd dose of the vaccine?
+    - Does it make any difference if I do not take the second dose of the vaccine?
+    - Is it important to receive the 2 doses of the vaccine?
+    - Is it important to receive the two doses of the vaccine?
+    - Is it important to get both the doses of the vaccine?
+    - Is it necessary to get both the doses of the vaccine?
+    - How important is to take both the doses of the vaccine?
+    - I am unsure about getting the second dose.
+    - Can I avoid the second dose of the vaccine?
+    - I am not sure if I want to get the second dose.
+    - How important is to take the 2nd dose of the vaccine?
+    - How important to take the second dose of the vaccine?
+    - How important is to take the two doses of the vaccine?
+    - Is it important to take two doses of the vaccine?
+    - How necessary is it to take the second dose of the vaccine?
+    - How necessary is to get the 2nd dose of the vaccine?
+    - Hi, I have questions about the second dose of the vaccine.
+    - I have concerns regarding the second dose.
+    - I am looking for information regarding the second dose.
+  
+- intent: side_effect_second_dose
+  examples: |
+    - Do I get side effects from the second dose of the vaccine?
+    - What are the side effects after getting the second dose of the vaccine?
+    - What are the side effects from the second dose of the vaccine?
+    - Are there any side effects of the second dose of the vaccine?
+    - Do I get side effects from the first dose or the second dose of the vaccine?
+    - After which dose will I experience the side effects of the vaccine? First or second dose?
+    - After which dose will I experience the side effects of the vaccine?
+    - Do I experience side effects after getting the first dose or the second dose of the vaccine?
+
+- intent: vaccine_safety
+  examples: |
+    - How safe is Covid 19 vaccine?
+    - how safe is the vaccine?
+    - Are the Covid 19 vaccines safe?
+    - Is it safe to get Covid 19 vaccine?
+    - Is the vaccine safe?
+    - Are there any concerns with the Covid 19 vaccine?
+    - Can you please explain more about how safe is the vaccine?
+    - Can you please elaborate more on the safety of the vaccine?
+    - But is the vaccine safe long term?
+    - What are the safety concerns related to Covid 19 vaccine?
+    - Is Covid 19 vaccine safe?
+    - Are there any risks associated with Covid 19 vaccine?
+    - What are the risks of getting Covid 19 vaccine?
+    - Is there any risk of taking Covid 19 vaccine?
+    - Are there any risks related to Covid 19 vaccine?
+
+- intent: vaccine_work
+  examples: |
+    - How does the vaccine work?
+    - By what mechanism does the vaccine create immunity?
+    - Does the vaccine contains the virus that causes Covid?
+    - How is the vaccine working inside our body?
+    - How does the vaccine generate immunity?
+
+- intent: vaccine_approval
+  examples: |
+    - Why was the vaccine approved so quickly?
+    - Is there any risk because of the quick development or approval of the vaccine?
+    - Can you please explain the vaccine approval process?
+    - How was the vaccine developed so fast?
+    - How was the vaccine approved so fast?
+    - Were all the safety steps taken in the vaccine development or approval process?
+    - Please explain the vaccine development process.
+    - What technology was used to make this vaccine?
+    - Hi, I wanted to know about the vaccine approval process
+
+- intent: call_the_doctor
+  examples: |
+    - How do I know if I need to call a doctor after getting the vaccine?
+    - When do I call a doctor?
+    - Will I need to go to a doctor after getting vaccine?
+
+- intent: vaccine_doses
+  examples: |
+    - How many doses of vaccine do I need to take?
+    - How many doses of vaccine do I need?
+    - How many doses do I need to take?
+    - What number of doses of vaccine are required?
+    - How many doses of Covid 19 vaccine are required?
+    - What are the number of Covid 19 vaccine doses required?
+    - How many doses of Covid 19 vaccine are required?
+    - How many doses of the vaccine should I take?
+    - Do I need to take one dose or two doses or more doses?
+
+- intent: affirm_both_dose
+  examples: |
+    - yes, I have taken the vaccine
+    - Thanks, I will get both the doses
+    - I will get the second dose
+    - I will get the 2nd dose
+    - Thanks, I will get the 2nd dose
+    - yes, I will get my vaccination soon
+    - I will be getting the vaccine.
+
+- intent: delay_vaccination_decision
+  examples: |
+    - Can I wait for others to get vaccinated before me?
+    - I think I should wait and see what happens to others before getting vaccinated.
+    - Should I not wait and see what happens to others before getting vaccinated?
+    - Can I wait to see what happens to others before getting vaccinated?
+    - Is it good to wait for some time till others get their vaccine to observe for side effects?
+    - I would like to wait for others to get vaccine first.
+    - Should I wait for others to get vaccinated first to check the side effects?
+    - Is it ok to wait to see what happens to others before getting my own vaccine?
+    - Is it ok to wait and see what happens to other getting the vaccine before I get my own?
+    - I would like to wait for others to take vaccine. Is it ok?
+    - I wanted to know if it is ok to wait for sometime before getting vaccinated?
+
+- intent: high_risk_vaccination
+  examples: |
+    - I am not at high risk. Covid 19 isn’t that bad. I don’t need a vaccine.
+    - Do I need a vaccine if I am not at high risk of getting the Covid 19 infection?
+    - Do I need a vaccine if I am not at high risk of getting the sars cov 2 infection?
+    - Will I need a vaccine if I am not at high risk of getting the Covid 19 infection?
+    - Will I need to get a vaccine if I am at low risk of getting the Covid 19 infection?
+    - Will I need to get a vaccine if I am at low risk of getting the infection?
+    - I am at a lower risk of getting Covid infection. Do I need to get vaccinated?
+    - Do I need to get the vaccine if I am at low risk of getting infected?
+    - Should I get the vaccine if I am at low risk of getting the infection?
+    - Do I need to get the vaccine if I am at low risk of getting infection?
+    - I wanted to know if I need to get vaccinated as I am not in the high risk population?
+    - I am thinking of not getting the vaccine as I am not at high risk of getting the infection.
+    - Should I get the vaccine if I am at low risk of getting infected?
+    - Do I need to get vaccinated if I am at low risk of getting infected?
+    - Should I get vaccinated if I am at low risk of getting the infection?
+
+- intent: long_term_implications
+  examples: |
+    - What are the long term implications of the vaccine?
+    - What happens if I do not get Covid vaccine?
+    - What if I do not get vaccinated? What are the implications?
+    - What if I do not get vaccinated?
+    - I would be interested in knowing more about how Covid can impact my health?
+    - I would like to know how Covid can effect my health long term?
+    - how does Covid impact my lungs?
+    - I would like to know more about the long term implications of the vaccine.
+  
+
+- intent: after_vaccine_precautions
+  examples: |
+    - What are the precautions required after vaccination?
+    - What are precautions required after getting vaccinated?
+    - What precautions should I take after receiving the vaccine?
+    - What precautions should I take after getting vaccinated?
+    - What precautions should I take after vaccination?
+    - What precautions are needed after getting vaccinated?
+    - What precautions are needed after vaccination?
+    - What precautions should I take after I have been vaccinated?
+    - What precautions do I need to take after I have been vaccinated?
+    - Do I still need to wear a mask after getting vaccinated?
+    - Do I need to wear a mask after the vaccine?
+    - How important is it to wear a mask after getting vaccinated?
+    - How important is it wear a mask after vaccination?
+    - Is it important to wear a mask after getting vaccinated?
+    - Until when do I have to wear a mask?
+    - Do I have to maintain physical distance even though wearing a mask?
+    - Is hand hygiene required even though I wore a mask?
+    - What is the benefit of mask?
+    - Is limiting non-essential travel to be avoided even if wearing a mask?
+    - Is wearing mask necessary?
+    - I have got my vaccine. Do I still need to take any precautions against Covid?
+    - I got vaccinated. Do I still need to take any precautions?
+
+- intent: vaccine_pregnancy
+  examples: |
+  
+    - What if I am pregnant or trying to get pregnant?
+    - Should I get the vaccine if I am pregnant or trying to get pregnant?
+    - Do I need to get vaccinated if I am pregnant?
+    - Do I need to get the vaccine if I am trying to get pregnant?
+    - Do I need to get the vaccine if I am pregnant?
+    - Do I need to get vaccinated if I am trying to get pregnant?
+    - Is it safe to get the vaccine if I am pregnant or trying to get pregnant?
+    - Is it safe to get the vaccine if I am pregnant?
+    - Is it safe to get the vaccine if I am trying to get pregnant?
+    - Can vaccine impact my ability to get pregnant?
+    - Will vaccine impact my pregnancy?
+    - Does the vaccine effect pregnant women?
+    - Does the vaccine have any effect on pregnancy?
+    - Does the vaccine influence pregnancy in any way?
+    - Can the vaccine impact pregnancy?
+
+- intent: vaccine_breast_feeding
+  examples: |
+    - What if I’m breastfeeding?
+    - How will Covid 19 vaccine influence breast feeding women?
+    - What are the impacts of the vaccine on breast feeding women?
+    - Is there sufficient research done on the effects of vaccine on breast feeding women?
+    - Do I need to worry about getting Covid 19 vaccine if I am breast feeding?
+    - Should I get the vaccine if I am breast feeding?
+    - Should I get vaccinated if I am breast feeding?
+    - Is it ok to get the vaccine if I am breast feeding?
+    - Is it ok to get vaccinated if I am breast feeding?
+    - I am breast feeding. Should I get the vaccine?
+    - Are there any side effects of the vaccine on breast feeding women?
+    - I’m breastfeeding. Is it safe for me to get vaccinated?
+    - What are the guideline if I am breastfeeding?
+    - Where can I get additional information if I am breastfeeding?
+
+- intent: vaccine_protection
+  examples: |
+    - Will the vaccine protect me?
+    - Will the vaccine stop the spread of the Covid?
+    - Will the vaccine stop the spread of infection?
+    - Will the vaccine help in stopping the community spread of infection?
+    - How will the vaccine help me?
+    - Will the vaccine help me?
+    - Can vaccine stop the spread of Covid 19 infection?
+    - If I get vaccinated, will it help in stopping the spread of Covid 19 infection?
+    - Why should I get the Covid 19 vaccine?
+    - Is it important to get the vaccine?
+    - Why is it important to get the vaccine?
+    - Is it necessary to get the vaccine?
+    - Is it necessary to get the Covid 19 vaccine?
+    - Why is it important to get vaccinated?
+    - What is the need of the Covid 19 vaccine?
+
+- intent: vaccination_kids
+  examples: |
+    - When can my children receive vaccine?
+    - When will the vaccine for children be available?
+    - When will there be vaccine for children?
+    - When can kids get the vaccine?
+    - When can children get vaccinated?
+    - When can kids get vaccinated?
+    - How long does it take to get a vaccine for children?
+    - How long do we have to wait for a kid’s vaccine to come out?
+
+- intent: vaccine_death
+  examples: |
+    - Has anyone died by taking the vaccine?
+    - Can Covid-19 vaccine cause death?
+    - Can anyone die from the vaccine?
+    - Can people die after taking the vaccine?
+    - Are there any deaths due to the vaccine so far?
+    - Have there been any deaths due to the vaccine?
+
+- intent: covid_vs_flu_vac
+  examples: |
+    - Is Covid 19 vaccine different from Flu vaccine?
+    - How is the Covid 19 vaccine different from Flu vaccine?
+    - How different is the Covid 19 vaccine from the Flu vaccine?
+    - What is the difference between the Covid 19 and Flu vaccine?
+    - Are there any differences between the Covid 19 and Flu vaccine?
+    - What are the differences between Covid 19 and Flu vaccine?
+    - Please tell the differences between Covid 19 and Flu vaccine?
+    - Hi, I wanted to know if the Covid vaccine and Flu vaccine are similar?
+
+- intent: vaccine_ingredients
+  examples: |
+    - What are the ingredients of the vaccine?
+    - What is the vaccine made up of?
+    - What are important constituents of the vaccine?
+    - What are important components of the vaccine?
+    - What are ingredients present inside the vaccine?
+    - Please list the ingredients inside the vaccine?
+    - What is inside of the vaccine?
+    - Please list the components of the vaccine?
+    - What makes the vaccine?
+    - Please list the constituents of the vaccine?
+    - What is present inside the vaccine?
+    - What does the vaccine contain inside?
+    - What does the vaccine contain?
+    - What does the vaccine consist of?
+ 
